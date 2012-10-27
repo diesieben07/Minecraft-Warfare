@@ -33,7 +33,6 @@ public class ClientTickHandler implements ITickHandler {
 			List<GuiButton> controlList = ObfuscationReflectionHelper.<List<GuiButton>,GuiScreen>getPrivateValue(GuiScreen.class, mc.currentScreen, 3);
 			
 			if (theButton == null || !controlList.contains(theButton)) {
-				System.out.println("adding");
 				// (re-)create our button
 				theButton = new ButtonMainMenu(1, mc.currentScreen.width / 2 + 2, mc.currentScreen.height / 4 + 48, 98, 20, "Minecraft Warfare");
 				// and add it to the list
