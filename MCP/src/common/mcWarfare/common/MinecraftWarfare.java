@@ -10,6 +10,7 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "MinecraftWarfare", name = "Minecraft Warfare", version = "0.1")
 public class MinecraftWarfare {
@@ -29,7 +30,10 @@ public class MinecraftWarfare {
 		logger.setUseParentHandlers(true);
 		
 		logger.info("MCWarfare PreInitializing...");
-		proxy.preInit();
+		
+		LanguageLoader.loadLanguages(getClass().getResourceAsStream("/mcwarfareresource/mcwarfare.lang"), LanguageRegistry.instance());
+		
+		proxy.preInit();		
 	}
 	
 	@Init
