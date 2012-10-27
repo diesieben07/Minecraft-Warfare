@@ -29,6 +29,7 @@ public class MinecraftWarfare {
 		logger.setUseParentHandlers(true);
 		
 		logger.info("MCWarfare PreInitializing...");
+		proxy.preInit();
 	}
 	
 	@Init
