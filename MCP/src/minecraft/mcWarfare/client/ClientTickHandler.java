@@ -43,9 +43,6 @@ public class ClientTickHandler implements ITickHandler {
 				for (int i = 0; i < 2; i++) {
 					controlList.get(i).yPosition -= 24;
 				}
-				
-				// reduce the width of the button
-				//ObfuscationReflectionHelper.<GuiButton,Integer>setPrivateValue(GuiButton.class, singlePlayerButton, Integer.valueOf(98), 0);
 			}
 		}
 	}
