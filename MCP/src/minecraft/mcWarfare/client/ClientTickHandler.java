@@ -39,9 +39,16 @@ public class ClientTickHandler implements ITickHandler {
 				controlList.add(theButton);
 				
 				// adjust the yPosition of the singleplayer and Multiplayer button
-				
 				for (int i = 0; i < 2; i++) {
 					controlList.get(i).yPosition -= 24;
+				}
+				
+				// shift all buttons down to make room for the splashes
+				for (int i = 0; i < controlList.size(); i++) {
+					GuiButton button = controlList.get(i);
+					if (button.id != 0 && button.id != 4 && button.id != 5) { // all buttons except quit, options and language
+						button.yPosition += 12;
+					}
 				}
 			}
 		}
