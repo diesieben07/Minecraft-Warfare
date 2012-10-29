@@ -11,6 +11,7 @@ public class ButtonMainMenu extends GuiButton {
 	
 	public boolean mousePressed(Minecraft mc, int mouseX, int mouseY) {
         if (super.mousePressed(mc, mouseX, mouseY)) {
+        	mc.sndManager.playSoundFX("random.click", 1.0F, 1.0F);
         	mc.displayGuiScreen(new McWarfareMenu(mc.currentScreen));
         }
         return false;
