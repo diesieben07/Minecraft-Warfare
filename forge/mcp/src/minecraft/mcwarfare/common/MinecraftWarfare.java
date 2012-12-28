@@ -15,8 +15,10 @@ public class MinecraftWarfare {
 	
 	@SidedProxy(clientSide = "mcwarfare.client.ClientProxy", serverSide = "mcwarfare.common.CommonProxy")
 	public static CommonProxy proxy;
-	
 	public static Logger logger;
+	
+	public static ItemGrenade grenade;
+	public static ItemsmokeGrenade smokegrenade;
 	
 	@Init
 	public void init(FMLInitializationEvent evt) {
@@ -27,5 +29,8 @@ public class MinecraftWarfare {
 		logger.info("Initializing...");
 		
 		proxy.init();
+		
+		grenade = new ItemGrenade
+		smokegrenade = new ItemsmokeGrenade		
 	}
 }
