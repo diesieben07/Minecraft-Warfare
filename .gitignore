@@ -19,4 +19,4 @@
 /build/temp/*
 
 /forge/mcp/src/minecraft/*
-!/forge/mcp/src/minecraft/mcWarfare
+!/forge/mcp/src/minecraft/mcwarfare
