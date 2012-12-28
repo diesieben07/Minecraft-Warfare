@@ -24,6 +24,9 @@ public class MinecraftWarfare {
 	
 	public static Logger logger;
 	
+	public static ItemGrenade grenade;
+	public static ItemsmokeGrenade smokegrenade;
+	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt) {
 		conf = new Configuration(evt.getSuggestedConfigurationFile());
@@ -38,5 +41,8 @@ public class MinecraftWarfare {
 		logger.info("Initializing...");
 		
 		proxy.init();
+		
+		grenade = new ItemGrenade(4000, 0);
+		smokegrenade = new ItemsmokeGrenade	(4001, 0);	
 	}
 }
