@@ -25,5 +25,7 @@ public class MinecraftWarfare {
 		logger.setUseParentHandlers(true);
 		
 		logger.info("Initializing...");
+		
+		proxy.init();
 	}
 }
