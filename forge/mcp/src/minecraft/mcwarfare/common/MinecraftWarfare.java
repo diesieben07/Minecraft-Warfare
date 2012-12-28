@@ -30,7 +30,7 @@ public class MinecraftWarfare {
 		
 		proxy.init();
 		
-		grenade = new ItemGrenade
-		smokegrenade = new ItemsmokeGrenade		
+		grenade = new ItemGrenade(4000, 0);
+		smokegrenade = new ItemsmokeGrenade	(4001, 0);	
 	}
 }

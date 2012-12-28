@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 
 public class ItemGrenade extends Item{
 
-	public ItemGrenade(int itemID, int textureIndex, String color)
+	public ItemGrenade(int itemID, int textureIndex)
     {
             super(itemID);
             this.setIconIndex(0);
