@@ -24,7 +24,7 @@ public class GuiWarfareMenu extends GuiScreen {
 
 	@Override
 	public void drawScreen(int par1, int par2, float par3) {
-		if (tickCount < 200 && !hasBeenOpenend) {
+		if (tickCount < 100 && !hasBeenOpenend) {
 			ScaledResolution scaled = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
 			Tessellator tesselator = Tessellator.instance;
 			GL11.glBindTexture(GL11.GL_TEXTURE_2D, mc.renderEngine.getTexture("/mcwarfare/resource/lighthouse.png"));

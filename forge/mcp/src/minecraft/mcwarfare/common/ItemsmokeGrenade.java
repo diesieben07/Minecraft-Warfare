@@ -10,7 +10,6 @@ public class ItemsmokeGrenade extends Item{
             super(itemID);
             this.setIconIndex(0);
             this.maxStackSize = 1;
-            this.setTextureFile("/com/slatebit/paintball/assets/items.png");
             this.setItemName("smokeGrenade");
             LanguageRegistry.instance().addStringLocalization(this.getItemName() + ".name", "en_US", "Smoke Grenade");
             

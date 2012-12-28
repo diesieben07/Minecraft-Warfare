@@ -19,6 +19,8 @@ public class MinecraftWarfare {
 	
 	public static ItemGrenade grenade;
 	public static ItemsmokeGrenade smokegrenade;
+	public static ItemGun gun;
+	public static ItemLauncher launcher;
 	
 	@Init
 	public void init(FMLInitializationEvent evt) {
@@ -31,6 +33,9 @@ public class MinecraftWarfare {
 		proxy.init();
 		
 		grenade = new ItemGrenade(4000, 0);
-		smokegrenade = new ItemsmokeGrenade	(4001, 0);	
+		smokegrenade = new ItemsmokeGrenade(4001, 0);
+		gun = new ItemGun(4002, 0);
+		launcher = new ItemLauncher(4003, 0);
+		
 	}
 }
