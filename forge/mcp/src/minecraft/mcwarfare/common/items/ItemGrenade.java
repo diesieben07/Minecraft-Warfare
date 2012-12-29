@@ -20,24 +20,21 @@ public class ItemGrenade extends ItemWarfare {
 		setHasSubtypes(true);
 		setMaxStackSize(1);
 	}
-	
+
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        if (!par3EntityPlayer.capabilities.isCreativeMode)
-        {
-            --par1ItemStack.stackSize;
-        }
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		if (!player.capabilities.isCreativeMode) {
+			--stack.stackSize;
+		}
 
-        par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-        if (!par2World.isRemote)
-        {
-            par2World.spawnEntityInWorld(new EntityGrenade(par2World, par3EntityPlayer));
-        }
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(new EntityGrenade(world, player));
+		}
 
-        return par1ItemStack;
-    }
+		return stack;
+	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -47,7 +44,8 @@ public class ItemGrenade extends ItemWarfare {
 
 	@Override
 	public String getItemNameIS(ItemStack stack) {
-		return "item.mcwarfare.grenade." + GrenadeType.fromItemDamage(stack).getName();
+		return "item.mcwarfare.grenade."
+				+ GrenadeType.fromItemDamage(stack).getName();
 	}
 
 	@Override
