@@ -44,8 +44,7 @@ public class ItemGrenade extends ItemWarfare {
 
 	@Override
 	public String getItemNameIS(ItemStack stack) {
-		return "item.mcwarfare.grenade."
-				+ GrenadeType.fromItemDamage(stack).getName();
+		return "item.mcwarfare.grenade." + GrenadeType.fromItemDamage(stack).getName();
 	}
 
 	@Override
