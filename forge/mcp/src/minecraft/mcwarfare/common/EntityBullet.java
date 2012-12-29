@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -22,7 +23,9 @@ public class EntityBullet extends EntityThrowable {
     }
 
 	@Override
-	protected void onImpact(MovingObjectPosition impact) {
-		
+	protected void onImpact(MovingObjectPosition hit) {
+		if (hit.entityHit != null) {
+			hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), 4);
+		}
 	}
 }
