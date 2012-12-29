@@ -3,7 +3,9 @@ package mcwarfare.common.items;
 import static mcwarfare.common.MinecraftWarfare.conf;
 import mcwarfare.common.MinecraftWarfare;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 
 public class ItemWarfare extends Item {
 
@@ -15,6 +17,8 @@ public class ItemWarfare extends Item {
 		super(conf.getItem(itemName + "ID", defaultId).getInt());
 		initWarfareItem(this, itemName);
 	}
+	
+	public void onItemLeftClick(EntityPlayer player, World world) { }
 	
 	public static void initWarfareItem(Item item, String itemName) {
 		item.setItemName("mcwarfare." + itemName);
