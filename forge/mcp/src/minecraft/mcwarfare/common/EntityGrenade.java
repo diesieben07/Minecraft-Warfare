@@ -32,8 +32,8 @@ public class EntityGrenade extends EntityThrowable {
 		super.onUpdate();
 		if (impacted) {
 			impactTicks++;
-			if (impactTicks >= 20) {
-				worldObj.createExplosion((Entity)null, this.posX, this.posY, this.posZ, 4, true);
+			if (impactTicks >= 40) {
+				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 4, true);
 				setDead();
 			}
 		}
