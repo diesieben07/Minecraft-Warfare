@@ -8,12 +8,6 @@ import net.minecraft.item.ItemStack;
 
 public class WFEventHandler {
 	public static void onLivingSwing(EntityLiving living) {
-		if (living instanceof EntityPlayer && !(living instanceof EntityOtherPlayerMP)) {
-			EntityPlayer player = (EntityPlayer)living;
-			ItemStack stack = player.getCurrentEquippedItem();
-			if (stack != null && stack.getItem() != null && stack.getItem() instanceof ItemWarfare) {
-				((ItemWarfare)stack.getItem()).onItemLeftClick(player, player.worldObj);
-			}
-		}
+		MinecraftWarfare.proxy.onEntitySwing(living);
 	}
 }

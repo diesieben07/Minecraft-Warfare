@@ -34,6 +34,7 @@ public abstract class WFPacket {
 	}
 	
 	static {
+		addMapping(0, PacketLeftClickAir.class);
 	}
 	
 	public final Packet generatePacket() {
