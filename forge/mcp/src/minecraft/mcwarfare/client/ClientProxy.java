@@ -25,7 +25,6 @@ public class ClientProxy extends CommonProxy {
 				((ItemWarfare)stack.getItem()).onItemLeftClick(mc.thePlayer, mc.thePlayer.worldObj);
 			}
 			new PacketLeftClickAir().sendToServer();
-			System.out.println("yes");
 		}
 	}
 	
