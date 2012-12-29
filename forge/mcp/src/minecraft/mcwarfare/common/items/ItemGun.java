@@ -1,6 +1,6 @@
 package mcwarfare.common.items;
 
-import mcwarfare.common.EntityBullet;
+import mcwarfare.common.entities.EntityBullet;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

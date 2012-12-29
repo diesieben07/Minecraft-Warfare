@@ -1,4 +1,4 @@
-package mcwarfare.common;
+package mcwarfare.common.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

@@ -1,4 +1,4 @@
-package mcwarfare.common;
+package mcwarfare.common.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -27,5 +27,6 @@ public class EntityBullet extends EntityThrowable {
 		if (hit.entityHit != null) {
 			hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), 4);
 		}
+		setDead();
 	}
 }

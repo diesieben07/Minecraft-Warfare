@@ -2,6 +2,7 @@ package mcwarfare.common;
 
 import java.util.logging.Logger;
 
+import mcwarfare.common.entities.EntityBullet;
 import mcwarfare.common.items.ItemWarfare;
 import mcwarfare.common.network.WFPacket;
 import mcwarfare.common.network.WFPacketHandler;

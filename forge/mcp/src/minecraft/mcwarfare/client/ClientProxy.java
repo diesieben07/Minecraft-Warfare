@@ -2,8 +2,8 @@ package mcwarfare.client;
 
 import mcwarfare.client.render.RenderBullet;
 import mcwarfare.common.CommonProxy;
-import mcwarfare.common.EntityBullet;
 import mcwarfare.common.MinecraftWarfare;
+import mcwarfare.common.entities.EntityBullet;
 import mcwarfare.common.items.ItemWarfare;
 import mcwarfare.common.network.PacketLeftClickAir;
 import net.minecraft.client.Minecraft;
