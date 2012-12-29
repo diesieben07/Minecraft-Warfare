@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import mcwarfare.common.items.ItemWarfare;
 import mcwarfare.common.network.WFPacket;
 import mcwarfare.common.network.WFPacketHandler;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
@@ -33,8 +34,8 @@ public class MinecraftWarfare {
 	public static MinecraftWarfare instance;
 	
 	public static Configuration conf;
-	
 	public static Logger logger;
+	public static CreativeTabs creativeTab;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent evt) {
@@ -53,6 +54,8 @@ public class MinecraftWarfare {
 		logger.info("Initializing...");
 		
 		proxy.init();
+		
+		creativeTab = new WFCreativeTab();
 		
 		ItemWarfare.createItems();
 		

@@ -23,7 +23,7 @@ public class ItemWarfare extends Item {
 	public static void initWarfareItem(Item item, String itemName) {
 		item.setItemName("mcwarfare." + itemName);
 		item.setTextureFile(MinecraftWarfare.TEXTURE_FILE);
-		item.setCreativeTab(CreativeTabs.tabMisc);
+		item.setCreativeTab(MinecraftWarfare.creativeTab);
 	}
 	
 	public static void createItems() {
