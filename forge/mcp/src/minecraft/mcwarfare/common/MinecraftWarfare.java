@@ -56,7 +56,7 @@ public class MinecraftWarfare {
 		
 		ItemWarfare.createItems();
 		
-		registerEntity(EntityBullet.class, "bullet", 64, 20, false);
+		registerEntity(EntityBullet.class, "bullet", 64, 20, true);
 	}
 	
 	private void registerEntity(Class<? extends Entity> clazz, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {

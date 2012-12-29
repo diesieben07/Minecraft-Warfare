@@ -15,8 +15,10 @@ public class ItemGun extends ItemWarfare {
 	@Override
 	public void onItemLeftClick(EntityPlayer player, World world) {
 		if (!world.isRemote) {
-			EntityBullet bullet = new EntityBullet(world);
-			bullet.setPosition(player.posX, player.posY, player.posZ);
+			EntityBullet bullet = new EntityBullet(world, player, 2);
+			
+			
+			bullet.setPosition(player.posX, player.posY + player.getEyeHeight(), player.posZ);
 			world.spawnEntityInWorld(bullet);
 		}
 	}	

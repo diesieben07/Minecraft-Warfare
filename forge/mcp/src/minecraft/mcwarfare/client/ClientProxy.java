@@ -1,15 +1,16 @@
 package mcwarfare.client;
 
+import mcwarfare.client.render.RenderBullet;
 import mcwarfare.common.CommonProxy;
+import mcwarfare.common.EntityBullet;
 import mcwarfare.common.MinecraftWarfare;
 import mcwarfare.common.items.ItemWarfare;
 import mcwarfare.common.network.PacketLeftClickAir;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.MinecraftForgeClient;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -36,5 +37,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init() {
 		TickRegistry.registerTickHandler(new ClientTickHandler(mc), Side.CLIENT);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
 	}
 }
