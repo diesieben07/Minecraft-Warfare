@@ -5,9 +5,13 @@ import java.util.List;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mcwarfare.common.EntityGrenade;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class ItemGrenade extends ItemWarfare {
 
@@ -16,6 +20,24 @@ public class ItemGrenade extends ItemWarfare {
 		setHasSubtypes(true);
 		setMaxStackSize(1);
 	}
+	
+	@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {
+        if (!par3EntityPlayer.capabilities.isCreativeMode)
+        {
+            --par1ItemStack.stackSize;
+        }
+
+        par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+
+        if (!par2World.isRemote)
+        {
+            par2World.spawnEntityInWorld(new EntityGrenade(par2World, par3EntityPlayer));
+        }
+
+        return par1ItemStack;
+    }
 
 	@Override
 	@SideOnly(Side.CLIENT)
