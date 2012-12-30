@@ -3,6 +3,7 @@ package mcwarfare.common.entities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
@@ -27,13 +28,26 @@ public class EntityGrenade extends EntityThrowable {
 		motionZ = 0;
 	}
 
+	
+	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		if (impacted) {
 			impactTicks++;
+
+			if (impactTicks >= 10) {
+				
+				
+				worldObj.spawnParticle("largesmoke", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+				
+			}
 			if (impactTicks >= 40) {
-				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 4, true);
+				
+				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2, true);
+				//this.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), byte0));
+				
 				setDead();
 			}
 		}
