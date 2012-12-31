@@ -39,6 +39,7 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 		motionX = 0;
 		motionY = 0;
 		motionZ = 0;
+		
 		if (target.entityHit != null) {
 			target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), 2);
 		}
