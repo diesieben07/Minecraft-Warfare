@@ -53,7 +53,6 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			
 			if (impactTicks >= 40) {
 				detonate();
-				setDead();
 			}
 		}
 	}
@@ -64,6 +63,7 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 		case NORMAL:
 			if (!worldObj.isRemote) {
 				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2, true);
+				setDead();
 			}
 			break;
 		case SMOKE:
