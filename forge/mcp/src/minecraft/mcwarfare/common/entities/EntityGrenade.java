@@ -20,6 +20,7 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 
 	private boolean impacted = false;
 	private int impactTicks = 0;
+	private boolean var8;
 	
 	private GrenadeType type = GrenadeType.NORMAL;
 	
@@ -72,55 +73,13 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			
 			
 			for(int i=0; i<200; i++){
-				worldObj.spawnParticle("largesmoke", posX, posY, posZ, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1 : 1), posY + (rand.nextBoolean() ? -1 : 1), posZ + (rand.nextBoolean() ? -1 : 1), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1 : 1), posY + (rand.nextBoolean() ? -1 : 1), posZ + (rand.nextBoolean() ? -1 : 1), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1 : 1), posY + (rand.nextBoolean() ? -1 : 1), posZ + (rand.nextBoolean() ? -1 : 1), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1.25 : 1.25), posY + (rand.nextBoolean() ? -1.25 : 1.25), posZ + (rand.nextBoolean() ? -1.25 : 1.25), rand.nextDouble() * (rand.nextBoolean() ? -1.25 : 1.25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1.5 : 1.5), posY + (rand.nextBoolean() ? -1.5 : 1.5), posZ + (rand.nextBoolean() ? -1.5 : 1.5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1.75 : 1.75), posY + (rand.nextBoolean() ? -1.75 : 1.75), posZ + (rand.nextBoolean() ? -1.75 : 1.75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2 : 2), posY + (rand.nextBoolean() ? -2 : 2), posZ + (rand.nextBoolean() ? -2 : 2), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2.25 : 2.25), posY + (rand.nextBoolean() ? -2.25 : 2.25), posZ + (rand.nextBoolean() ? -2.25 : 2.25), rand.nextDouble() * (rand.nextBoolean() ? -2.25 : 2.25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2.5 : 2.5), posY + (rand.nextBoolean() ? -2.5 : 2.5), posZ + (rand.nextBoolean() ? -2.5 : 2.5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2.75 : 2.75), posY + (rand.nextBoolean() ? -2.75 : 2.75), posZ + (rand.nextBoolean() ? -2.75 : 2.75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3 : 3), posY + (rand.nextBoolean() ? -3 : 3), posZ + (rand.nextBoolean() ? -3 : 3), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-			
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3.25 : 3.25), posY + (rand.nextBoolean() ? -3.25 : 3.25), posZ + (rand.nextBoolean() ? -3.25 : 3.25), rand.nextDouble() * (rand.nextBoolean() ? -3.25 : 3.25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3.5 : 2.5), posY + (rand.nextBoolean() ? -3.5 : 3.5), posZ + (rand.nextBoolean() ? -3.5 : 3.5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3.75 : 2.75), posY + (rand.nextBoolean() ? -3.75 : 3.75), posZ + (rand.nextBoolean() ? -3.75 : 3.75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4), posY + (rand.nextBoolean() ? -4 : 4), posZ + (rand.nextBoolean() ? -4 : 4), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + rand.nextInt(5), posY + rand.nextInt(5), posZ + rand.nextInt(5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX - rand.nextInt(5), posY - rand.nextInt(5), posZ - rand.nextInt(5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1 : 1), posY + (rand.nextBoolean() ? -1 : 1), posZ + (rand.nextBoolean() ? -1 : 1), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1.25 : 1.25), posY + (rand.nextBoolean() ? -1.25 : 1.25), posZ + (rand.nextBoolean() ? -1.25 : 1.25), rand.nextDouble() * (rand.nextBoolean() ? -1.25 : 1.25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1.5 : 1.5), posY + (rand.nextBoolean() ? -1.5 : 1.5), posZ + (rand.nextBoolean() ? -1.5 : 1.5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1.75 : 1.75), posY + (rand.nextBoolean() ? -1.75 : 1.75), posZ + (rand.nextBoolean() ? -1.75 : 1.75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2 : 2), posY + (rand.nextBoolean() ? -2 : 2), posZ + (rand.nextBoolean() ? -2 : 2), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2.25 : 2.25), posY + (rand.nextBoolean() ? -2.25 : 2.25), posZ + (rand.nextBoolean() ? -2.25 : 2.25), rand.nextDouble() * (rand.nextBoolean() ? -2.25 : 2.25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2.5 : 2.5), posY + (rand.nextBoolean() ? -2.5 : 2.5), posZ + (rand.nextBoolean() ? -2.5 : 2.5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -2.75 : 2.75), posY + (rand.nextBoolean() ? -2.75 : 2.75), posZ + (rand.nextBoolean() ? -2.75 : 2.75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3 : 3), posY + (rand.nextBoolean() ? -3 : 3), posZ + (rand.nextBoolean() ? -3 : 3), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-			
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3.25 : 3.25), posY + (rand.nextBoolean() ? -3.25 : 3.25), posZ + (rand.nextBoolean() ? -3.25 : 3.25), rand.nextDouble() * (rand.nextBoolean() ? -3.25 : 3.25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3.5 : 2.5), posY + (rand.nextBoolean() ? -3.5 : 3.5), posZ + (rand.nextBoolean() ? -3.5 : 3.5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -3.75 : 2.75), posY + (rand.nextBoolean() ? -3.75 : 3.75), posZ + (rand.nextBoolean() ? -3.75 : 3.75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4), posY + (rand.nextBoolean() ? -4 : 4), posZ + (rand.nextBoolean() ? -4 : 4), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				}
 
 			
