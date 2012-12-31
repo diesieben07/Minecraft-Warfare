@@ -67,31 +67,25 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			}
 			break;
 		case SMOKE:
-<<<<<<< HEAD
+
 			
 			
 			
 			
-			for(int i=0; i<200; i++){
+			
 				
-				
-				
-				worldObj.spawnParticle("largesmoke", posX + rand.nextInt(5), posY + rand.nextInt(5), posZ + rand.nextInt(5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				worldObj.spawnParticle("largesmoke", posX - rand.nextInt(5), posY - rand.nextInt(5), posZ - rand.nextInt(5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
-				
-				
-=======
+
 			if (rand.nextInt(2) == 0) {
 				for (int i = 0; i < 300; i++) {
 					worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), posY, posZ + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), (rand.nextBoolean() ? -1 : 1) * rand.nextDouble() * rand.nextDouble(), rand.nextDouble() * rand.nextDouble(), (rand.nextBoolean() ? -1 : 1) * rand.nextDouble() * rand.nextDouble());
->>>>>>> 3a984f955043f619f1329dc1ee49a0a0da61dbfe
+
 				}
 			}
 			if (!worldObj.isRemote && rand.nextInt(500) == 0) {
 				setDead();
 			}
 			break;
-		}
+			}
 	}
 
 	@Override
