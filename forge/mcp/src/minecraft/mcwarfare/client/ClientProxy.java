@@ -1,9 +1,11 @@
 package mcwarfare.client;
 
 import mcwarfare.client.render.RenderBullet;
+import mcwarfare.client.render.RenderGrenade;
 import mcwarfare.common.CommonProxy;
 import mcwarfare.common.MinecraftWarfare;
 import mcwarfare.common.entities.EntityBullet;
+import mcwarfare.common.entities.EntityGrenade;
 import mcwarfare.common.items.ItemWarfare;
 import mcwarfare.common.network.PacketLeftClickAir;
 import net.minecraft.client.Minecraft;
@@ -38,5 +40,6 @@ public class ClientProxy extends CommonProxy {
 	public void init() {
 		TickRegistry.registerTickHandler(new ClientTickHandler(mc), Side.CLIENT);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade());
 	}
 }

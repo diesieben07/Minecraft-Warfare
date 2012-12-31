@@ -3,6 +3,7 @@ package mcwarfare.common;
 import java.util.logging.Logger;
 
 import mcwarfare.common.entities.EntityBullet;
+import mcwarfare.common.entities.EntityGrenade;
 import mcwarfare.common.items.ItemWarfare;
 import mcwarfare.common.network.WFPacket;
 import mcwarfare.common.network.WFPacketHandler;
@@ -61,6 +62,7 @@ public class MinecraftWarfare {
 		ItemWarfare.createItems();
 		
 		registerEntity(EntityBullet.class, "bullet", 64, 20, true);
+		registerEntity(EntityGrenade.class, "grenade", 64, 20, true);
 	}
 	
 	private void registerEntity(Class<? extends Entity> clazz, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
