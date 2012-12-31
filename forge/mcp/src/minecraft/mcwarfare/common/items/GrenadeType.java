@@ -13,15 +13,15 @@ public enum GrenadeType {
 		this.textureIndex = textureIndex;
 	}
 	
-	public final int toItemDamage() {
+	public final int toId() {
 		return ordinal();
 	}
 	
 	public static GrenadeType fromItemDamage(ItemStack stack) {
-		return fromItemDamage(stack.getItemDamage());
+		return byId(stack.getItemDamage());
 	}
 	
-	public static GrenadeType fromItemDamage(int damage) {
+	public static GrenadeType byId(int damage) {
 		return damage < 0 || damage >= values().length ? NORMAL : values()[damage];
 	}
 
