@@ -38,6 +38,9 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 		motionX = 0;
 		motionY = 0;
 		motionZ = 0;
+		if (target.entityHit != null) {
+			target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), 2);
+		}
 	}
 
 	@Override
@@ -55,6 +58,7 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 		}
 	}
 	
+	
 	private void detonate() {
 		switch (type) {
 		case NORMAL:
@@ -70,6 +74,14 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			for(int i=0; i<200; i++){
 				worldObj.spawnParticle("largesmoke", posX, posY, posZ, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1 : 1), posY + (rand.nextBoolean() ? -1 : 1), posZ + (rand.nextBoolean() ? -1 : 1), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -1 : 1), posY + (rand.nextBoolean() ? -1 : 1), posZ + (rand.nextBoolean() ? -1 : 1), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.25 : .25), posY + (rand.nextBoolean() ? -.25 : .25), posZ + (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.5 : .5), posY + (rand.nextBoolean() ? -.5 : .5), posZ + (rand.nextBoolean() ? -.5 : .5), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -.75 : .75), posY + (rand.nextBoolean() ? -.75 : .75), posZ + (rand.nextBoolean() ? -.75 : .75), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
