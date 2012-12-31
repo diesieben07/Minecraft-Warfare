@@ -1,5 +1,6 @@
 package mcwarfare.common.entities;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -21,7 +22,7 @@ public class EntityGrenade extends EntityThrowable {
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition var1) {
+	protected void onImpact(MovingObjectPosition target) {
 		impacted = true;
 		motionX = 0;
 		motionY = 0;
@@ -30,11 +31,13 @@ public class EntityGrenade extends EntityThrowable {
 
 	@Override
 	public void onUpdate() {
+		worldObj.spawnParticle("largesmoke", posX, posY, posZ, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
+		
 		super.onUpdate();
 		if (impacted) {
 			impactTicks++;
 			
-			if (impactTicks >= 40) {
+			if (impactTicks >= 40 && !worldObj.isRemote) {
 				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2, true);
 				setDead();
 			}
