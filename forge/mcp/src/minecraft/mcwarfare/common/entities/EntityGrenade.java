@@ -3,6 +3,7 @@ package mcwarfare.common.entities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
@@ -15,8 +16,8 @@ public class EntityGrenade extends EntityThrowable {
 		super(world);
 	}
 	
-	public EntityGrenade(World par1World, EntityLiving par2EntityLiving) {
-		super(par1World, par2EntityLiving);
+	public EntityGrenade(World world, EntityLiving thrower) {
+		super(world, thrower);
 	}
 
 	@Override
@@ -32,8 +33,9 @@ public class EntityGrenade extends EntityThrowable {
 		super.onUpdate();
 		if (impacted) {
 			impactTicks++;
+			
 			if (impactTicks >= 40) {
-				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 500, true);
+				worldObj.createExplosion(null, this.posX, this.posY, this.posZ, 2, true);
 				setDead();
 			}
 		}
