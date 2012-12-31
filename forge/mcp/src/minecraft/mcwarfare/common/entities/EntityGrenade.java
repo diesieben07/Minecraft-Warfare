@@ -68,9 +68,6 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			break;
 		case SMOKE:
 			
-			
-			
-			
 			for(int i=0; i<200; i++){
 				worldObj.spawnParticle("largesmoke", posX, posY, posZ, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				
@@ -123,11 +120,6 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 				worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4), posY + (rand.nextBoolean() ? -4 : 4), posZ + (rand.nextBoolean() ? -4 : 4), rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25), rand.nextDouble() / 8, rand.nextDouble() * (rand.nextBoolean() ? -.25 : .25));
 				}
 
-			
-			
-			
-		
-			
 			break;
 		}
 	}
@@ -141,12 +133,16 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		nbt.setByte("grenadeType", (byte)type.toId());
+		nbt.setBoolean("hasImpacted", impacted);
+		nbt.setInteger("impactTicks", impactTicks);
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		type = GrenadeType.byId(nbt.getByte("grenadeType"));
+		impacted = nbt.getBoolean("hasImpacted");
+		impactTicks = nbt.getInteger("impactTicks");
 	}
 
 	@Override
