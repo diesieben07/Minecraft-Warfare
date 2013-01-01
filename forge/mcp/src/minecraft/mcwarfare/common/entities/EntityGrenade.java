@@ -57,15 +57,10 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			impactTicks++;
 			
 			if (impactTicks >= 40) {
-				
-				switch (type){
-				case NORMAL:
-					detonate();
-				case SMOKE :
-				 
-					detonate();
+				detonate();
+				if (type == GrenadeType.SMOKE) {
+					// damage entities
 				}
-				
 			}
 		}
 	}
