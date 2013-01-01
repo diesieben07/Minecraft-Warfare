@@ -1,5 +1,6 @@
 package mcwarfare.common.entities;
 
+import java.util.List;
 import java.util.Random;
 
 import com.google.common.io.ByteArrayDataInput;
@@ -8,10 +9,13 @@ import com.google.common.io.ByteArrayDataOutput;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import mcwarfare.common.items.GrenadeType;
+import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.nbt.NBTTagCompound;
+
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -44,6 +48,7 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			target.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), 2);
 		}
 	}
+	
 
 	@Override
 	public void onUpdate() {
@@ -52,7 +57,15 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			impactTicks++;
 			
 			if (impactTicks >= 40) {
-				detonate();
+				
+				switch (type){
+				case NORMAL:
+					detonate();
+				case SMOKE :
+				 
+					detonate();
+				}
+				
 			}
 		}
 	}
@@ -68,17 +81,10 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			break;
 		case SMOKE:
 
-			
-			
-			
-			
-			
-				
-
 			if (rand.nextInt(2) == 0) {
+				
 				for (int i = 0; i < 300; i++) {
 					worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), posY, posZ + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), (rand.nextBoolean() ? -1 : 1) * rand.nextDouble() * rand.nextDouble(), rand.nextDouble() * rand.nextDouble(), (rand.nextBoolean() ? -1 : 1) * rand.nextDouble() * rand.nextDouble());
-
 				}
 			}
 			if (!worldObj.isRemote && rand.nextInt(500) == 0) {
@@ -87,6 +93,8 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 			break;
 			}
 	}
+	
+	
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
