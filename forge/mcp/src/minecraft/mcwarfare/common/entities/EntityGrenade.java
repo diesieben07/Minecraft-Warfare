@@ -67,7 +67,7 @@ public class EntityGrenade extends EntityThrowable implements IEntityAdditionalS
 		case SMOKE:
 			if (rand.nextInt(2) == 0) {
 				for (int i = 0; i < 300; i++) {
-					worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), posY, posZ + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), (rand.nextBoolean() ? -1 : 1) * rand.nextDouble() * rand.nextDouble(), rand.nextDouble() * rand.nextDouble(), (rand.nextBoolean() ? -1 : 1) * rand.nextDouble() * rand.nextDouble());
+					worldObj.spawnParticle("largesmoke", posX + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), posY, posZ + (rand.nextBoolean() ? -4 : 4) * rand.nextDouble(), (rand.nextBoolean() ? -.1 : .1) * rand.nextDouble() * rand.nextDouble(), rand.nextDouble() * rand.nextDouble(), (rand.nextBoolean() ? -.1 : .1) * rand.nextDouble() * rand.nextDouble());
 				}
 			}
 			if (!worldObj.isRemote && rand.nextInt(500) == 0) {
