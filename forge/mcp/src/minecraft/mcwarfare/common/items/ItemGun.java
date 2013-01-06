@@ -6,8 +6,15 @@ import net.minecraft.world.World;
 
 public class ItemGun extends ItemWarfare {
 
-	public ItemGun(int defaultId) {
+	public int bdamage;
+	
+	public ItemGun(int defaultId, int par2) {
 		super("gun", defaultId);
+		this.bdamage = par2;
+	}
+	
+	public int getBulletDamage(EntityBullet par2EntityBullet){
+		return this.bdamage;
 	}
 	
 	@Override

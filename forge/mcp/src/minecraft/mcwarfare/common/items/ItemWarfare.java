@@ -28,7 +28,7 @@ public class ItemWarfare extends Item {
 	
 	public static void createItems() {
 		grenade = new ItemGrenade(4000);
-		gun = new ItemGun(4001);
+		gun = new ItemGun(4001, 10);
 		launcher = new ItemLauncher(4002);
 	}
 }

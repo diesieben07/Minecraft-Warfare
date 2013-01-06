@@ -12,20 +12,27 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+
 public class EntityBullet extends EntityThrowable {
 
+
+	
+	public int bdamage;
 	public EntityBullet(World world) {
 		super(world);
+		
 	}
 	
 	public EntityBullet(World world, EntityLiving living) {
         super(world, living);
+       
     }
-
+	
+	
 	@Override
 	protected void onImpact(MovingObjectPosition hit) {
 		if (hit.entityHit != null) {
-			hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), 4);
+			hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, func_85052_h()), this.bdamage);
 		}
 		setDead();
 	}
