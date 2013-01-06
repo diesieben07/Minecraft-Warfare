@@ -30,6 +30,12 @@ public class ItemGun extends ItemWarfare {
 	public String getItemNameIS(ItemStack stack) {
 		return "item.mcwarfare.gun." + GunType.fromItemDamage(stack).getName();
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getIconFromDamage(int damage) {
+		return GunType.byId(damage).getTextureIndex();
+	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
