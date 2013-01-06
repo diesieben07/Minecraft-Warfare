@@ -9,6 +9,8 @@ import mcwarfare.common.network.WFPacket;
 import mcwarfare.common.network.WFPacketHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
@@ -22,6 +24,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = "mcWarfare", name = "Minecraft Warfare", version = "0.1")
 @NetworkMod(versionBounds = "0.1", channels = { WFPacket.CHANNEL }, packetHandler = WFPacketHandler.class, tinyPacketHandler = WFPacketHandler.class)
@@ -63,6 +67,7 @@ public class MinecraftWarfare {
 		
 		registerEntity(EntityBullet.class, "bullet", 64, 20, true);
 		registerEntity(EntityGrenade.class, "grenade", 64, 20, true);
+		TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
 	}
 	
 	private void registerEntity(Class<? extends Entity> clazz, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
@@ -74,5 +79,17 @@ public class MinecraftWarfare {
 	@PostInit
 	public void postInit(FMLPostInitializationEvent evt) {
 		conf.save();
+	}
+	
+	public static NBTTagCompound getModEntityData(Entity entity) {
+		NBTTagCompound entityData = entity.getEntityData();
+		if (entity instanceof EntityPlayer) {
+			NBTTagCompound persisted = entityData.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
+			entityData.setCompoundTag(EntityPlayer.PERSISTED_NBT_TAG, persisted);
+			entityData = persisted;
+		}
+		NBTTagCompound modData = entityData.getCompoundTag("mcWarfare");
+		entityData.setCompoundTag("mcWarfare", modData);
+		return modData;
 	}
 }

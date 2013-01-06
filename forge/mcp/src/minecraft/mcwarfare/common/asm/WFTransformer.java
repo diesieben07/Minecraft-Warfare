@@ -35,11 +35,13 @@ public class WFTransformer implements IClassTransformer {
 					list.add(new VarInsnNode(Opcodes.ALOAD, 0));
 					list.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "mcwarfare/common/WFEventHandler", "onLivingSwing", "(Lnet/minecraft/entity/EntityLiving;)V"));
 					
+					//method.instructions.insert(list);
+					hasTransformed = true;
+					
 					for (int i = 0; i < method.instructions.size(); i++) {
 						AbstractInsnNode node = method.instructions.get(i);
 						if (node.getOpcode() == Opcodes.RETURN) {
-							method.instructions.insertBefore(node, list);
-							hasTransformed = true;
+							//method.instructions.insertBefore(node, list);
 							break;
 						}
 					}

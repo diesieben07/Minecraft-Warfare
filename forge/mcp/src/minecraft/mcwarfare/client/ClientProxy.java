@@ -7,7 +7,7 @@ import mcwarfare.common.MinecraftWarfare;
 import mcwarfare.common.entities.EntityBullet;
 import mcwarfare.common.entities.EntityGrenade;
 import mcwarfare.common.items.ItemWarfare;
-import mcwarfare.common.network.PacketLeftClickAir;
+import mcwarfare.common.network.PacketLeftClick;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
@@ -25,9 +25,9 @@ public class ClientProxy extends CommonProxy {
 		if (living == mc.thePlayer && mc.objectMouseOver == null) {
 			ItemStack stack = mc.thePlayer.getCurrentEquippedItem();
 			if (stack != null && stack.getItem() != null && stack.getItem() instanceof ItemWarfare) {
-				((ItemWarfare)stack.getItem()).onItemLeftClick(mc.thePlayer, mc.thePlayer.worldObj);
+				((ItemWarfare)stack.getItem()).onItemLeftClickTick(mc.thePlayer, mc.thePlayer.worldObj);
 			}
-			new PacketLeftClickAir().sendToServer();
+			new PacketLeftClick().sendToServer();
 		}
 	}
 	

@@ -3,7 +3,11 @@ package mcwarfare.client;
 import java.util.EnumSet;
 import java.util.List;
 
+import org.lwjgl.input.Mouse;
+
 import mcwarfare.client.gui.ButtonWarfareMenu;
+import mcwarfare.common.MinecraftWarfare;
+import mcwarfare.common.network.PacketLeftClick;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -16,6 +20,8 @@ public class ClientTickHandler implements ITickHandler {
 
 	private final Minecraft mc;
 	private final ButtonWarfareMenu button = new ButtonWarfareMenu();
+	
+	private boolean pressedPrevious = true;
 	
 	public ClientTickHandler(Minecraft mc) {
 		this.mc = mc;
@@ -47,6 +53,11 @@ public class ClientTickHandler implements ITickHandler {
 					}
 				}
 			}
+		}
+		
+		if (mc.theWorld != null && mc.thePlayer != null && mc.gameSettings.keyBindAttack.pressed != pressedPrevious) {
+			pressedPrevious = mc.gameSettings.keyBindAttack.pressed;
+			new PacketLeftClick(pressedPrevious).sendToServer();
 		}
 	}
 
