@@ -68,6 +68,7 @@ public class MinecraftWarfare {
 		registerEntity(EntityBullet.class, "bullet", 64, 20, true);
 		registerEntity(EntityGrenade.class, "grenade", 64, 20, true);
 		TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
+		WarfareEventHandler.init();
 	}
 	
 	private void registerEntity(Class<? extends Entity> clazz, String name, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {

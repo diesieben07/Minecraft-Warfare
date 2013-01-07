@@ -3,6 +3,7 @@ package mcwarfare.common;
 import java.util.EnumSet;
 
 import mcwarfare.common.items.ItemWarfare;
+import mcwarfare.common.network.PacketClientHealth;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagByte;
@@ -27,6 +28,12 @@ public class ServerTickHandler implements ITickHandler {
 				((ItemWarfare)currentItem.getItem()).onItemLeftClickTick(player, player.worldObj, shootingTicks);
 				modData.setShort("shootingTicks", (short) ++shootingTicks);
 			}
+		}
+		int health = modData.getByte("health");
+		int lastHealth = modData.getByte("lastHealth");
+		if (health != lastHealth) {
+			new PacketClientHealth(health).sendToPlayer(player);
+			modData.setByte("lastHealth", (byte) health);
 		}
 	}
 

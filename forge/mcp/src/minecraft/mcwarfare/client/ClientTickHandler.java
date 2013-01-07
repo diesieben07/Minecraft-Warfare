@@ -23,6 +23,8 @@ public class ClientTickHandler implements ITickHandler {
 	
 	private boolean pressedPrevious = true;
 	
+	int clientHealth = 100;
+	
 	public ClientTickHandler(Minecraft mc) {
 		this.mc = mc;
 	}
@@ -34,6 +36,13 @@ public class ClientTickHandler implements ITickHandler {
 
 	@Override
 	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
+		if (type.contains(TickType.RENDER)) {
+			if (mc.theWorld != null && mc.thePlayer != null) {
+				mc.fontRenderer.drawString(clientHealth + " %", 10, 10, 0xff2222);
+			}
+			return;
+		}
+		
 		GuiScreen currentScreen = mc.currentScreen;
 		if (currentScreen != null && currentScreen instanceof GuiMainMenu) {
 			
@@ -63,7 +72,7 @@ public class ClientTickHandler implements ITickHandler {
 
 	@Override
 	public EnumSet<TickType> ticks() {
-		return EnumSet.of(TickType.CLIENT);
+		return EnumSet.of(TickType.RENDER, TickType.CLIENT);
 	}
 
 	@Override

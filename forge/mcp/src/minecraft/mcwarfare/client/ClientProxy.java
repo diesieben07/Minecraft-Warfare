@@ -19,6 +19,7 @@ import cpw.mods.fml.relauncher.Side;
 public class ClientProxy extends CommonProxy {
 	
 	private final Minecraft mc = Minecraft.getMinecraft();
+	private ClientTickHandler tickHandler;
 	
 	@Override
 	public void preInit() {
@@ -28,8 +29,14 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void init() {
-		TickRegistry.registerTickHandler(new ClientTickHandler(mc), Side.CLIENT);
+		tickHandler = new ClientTickHandler(mc);
+		TickRegistry.registerTickHandler(tickHandler, Side.CLIENT);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade());
+	}
+	
+	@Override
+	public void setClientHealth(int health) {
+		tickHandler.clientHealth = health;
 	}
 }
