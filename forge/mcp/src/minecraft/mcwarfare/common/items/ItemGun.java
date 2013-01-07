@@ -23,7 +23,7 @@ public class ItemGun extends ItemWarfare {
 			EntityBullet bullet = new EntityBullet(world, player, GunType.fromItemDamage(player.getCurrentEquippedItem()));
 			bullet.setPosition(player.posX, player.posY + player.getEyeHeight(), player.posZ);
 			world.spawnEntityInWorld(bullet);
-			Sound.SCR_SHOOT.playAtEntity(player);
+			Sound.ACR_SHOOT.playAtEntity(player);
 		}
 	}
 

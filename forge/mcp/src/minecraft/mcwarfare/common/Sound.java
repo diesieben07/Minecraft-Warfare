@@ -4,7 +4,7 @@ import net.minecraft.client.audio.SoundManager;
 import net.minecraft.entity.Entity;
 
 public enum Sound {
-	SCR_SHOOT("acrShoot");
+	ACR_SHOOT("acrShoot");
 	
 	private final String soundName;
 	
