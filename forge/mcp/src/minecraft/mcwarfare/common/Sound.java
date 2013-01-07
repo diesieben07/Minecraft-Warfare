@@ -1,6 +1,5 @@
 package mcwarfare.common;
 
-import net.minecraft.client.audio.SoundManager;
 import net.minecraft.entity.Entity;
 
 public enum Sound {
@@ -15,8 +14,8 @@ public enum Sound {
 	public void playAtEntity(Entity entity) {
 		entity.worldObj.playSoundAtEntity(entity, "mcwarfare." + soundName, 1, 1);
 	}
-	
-	public void register(SoundManager manager) {
-		manager.soundPoolSounds.addSound("mcwarfare/" + soundName + ".ogg", Sound.class.getResource("/mcwarfare/resource/sound/" + soundName + ".ogg"));
+
+	public final String getSoundName() {
+		return soundName;
 	}
 }

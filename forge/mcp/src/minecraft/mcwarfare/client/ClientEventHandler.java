@@ -17,7 +17,7 @@ public class ClientEventHandler {
 	@ForgeSubscribe
 	public void onSoundLoad(SoundLoadEvent evt) {
 		for (Sound sound : Sound.values()) {
-			sound.register(evt.manager);
+			evt.manager.soundPoolSounds.addSound("mcwarfare/" + sound.getSoundName() + ".ogg", ClientEventHandler.class.getResource("/mcwarfare/resource/sound/" + sound.getSoundName() + ".ogg"));
 		}
 	}
 }
