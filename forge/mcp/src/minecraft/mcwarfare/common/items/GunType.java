@@ -6,7 +6,7 @@ public enum GunType {
 	
 	NORMAL("normal", 0, 10, 0, 0, 0, 0, 0, 0, 0),
 	//AssaultRifles
-	AK47("AK47", 0, 10, 0, 0, 0, 10, 0, 0, 1),
+	AK47("AK47", 0, 10, 0, 0, 0, 10, 0, 0, 0, 1),
 	ARX160("ARX160", 0, 10, 0, 0, 0, 0, 0, 0, 0),
 	ACR("ACR", 0, 10, 0, 0, 0, 0, 0, 0, 0),
 	CM901("CM901", 0, 10, 0, 0, 0, 0, 0, 0, 0),
@@ -137,6 +137,7 @@ public enum GunType {
 		return boltaction;
 	}
 	public boolean shouldShootAtTick(int tickCount) {
+		System.out.println(shootSpeed);
 		return shootSpeed == -1 ? tickCount == 0 : tickCount % shootSpeed == 0;
 	}
 }
