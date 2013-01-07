@@ -2,6 +2,7 @@ package mcwarfare.common.items;
 
 import java.util.List;
 
+import mcwarfare.common.Sound;
 import mcwarfare.common.entities.EntityBullet;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,9 +21,9 @@ public class ItemGun extends ItemWarfare {
 	public void onItemLeftClickTick(EntityPlayer player, World world) {
 		if (!world.isRemote) {
 			EntityBullet bullet = new EntityBullet(world, player, GunType.fromItemDamage(player.getCurrentEquippedItem()));
-						
 			bullet.setPosition(player.posX, player.posY + player.getEyeHeight(), player.posZ);
 			world.spawnEntityInWorld(bullet);
+			Sound.SCR_SHOOT.playAtEntity(player);
 		}
 	}
 
