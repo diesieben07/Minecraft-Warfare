@@ -4,6 +4,8 @@ import mcwarfare.common.MinecraftWarfare;
 import mcwarfare.common.items.ItemWarfare;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagByte;
+import net.minecraft.nbt.NBTTagCompound;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
@@ -32,7 +34,9 @@ public class PacketLeftClick extends WFPacket {
 	void execute(EntityPlayer player) {
 		ItemStack stack = player.getCurrentEquippedItem();
 		if (stack != null && stack.getItem() != null && stack.getItem() instanceof ItemWarfare) {
-			MinecraftWarfare.getModEntityData(player).setBoolean("isShooting", isPressed);
+			NBTTagCompound modData = MinecraftWarfare.getModEntityData(player);
+			modData.setShort("shootingTicks", (short) 0);
+			modData.setBoolean("isShooting", isPressed);
 		}
 	}
 

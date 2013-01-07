@@ -36,15 +36,23 @@ public enum GunType {
 	UMP45("UMP45", 0, 10, 0, 0, 0, 0),
 	//LMG
 	MG36("MG36", 0, 10, 0, 0, 0, 0);
+	
 	private final int bulletDamage;
 	private final String name;
 	private final int textureIndex;
 	private final int vrecoil;
 	private final int hrecoil;
+	
 	private final int fmode; //0=SEMI 1=AUTO 2=BURST
 	private final int bspeed;
 	
+	private int shootSpeed;
+	
 	private GunType(String name, int textureIndex, int bulletDamage, int vrecoil, int hrecoil, int fmode, int bspeed) {
+		this(name, textureIndex, bulletDamage, vrecoil, hrecoil, fmode, bspeed, -1);
+	}
+	
+	private GunType(String name, int textureIndex, int bulletDamage, int vrecoil, int hrecoil, int fmode, int bspeed, int shootSpeed) {
 		this.bulletDamage = bulletDamage;
 		this.name = name;
 		this.textureIndex = textureIndex;
@@ -52,6 +60,7 @@ public enum GunType {
 		this.hrecoil = hrecoil;
 		this.fmode = fmode;
 		this.bspeed = bspeed;
+		this.shootSpeed = shootSpeed;
 	}
 	
 	public static GunType byId(int id) {
@@ -90,5 +99,9 @@ public enum GunType {
 	}
 	public int getBspeed() {
 		return bspeed;
+	}
+	
+	public boolean shouldShootAtTick(int tickCount) {
+		return shootSpeed == -1 ? tickCount == 0 : tickCount % shootSpeed == 0;
 	}
 }

@@ -21,17 +21,6 @@ public class ClientProxy extends CommonProxy {
 	private final Minecraft mc = Minecraft.getMinecraft();
 	
 	@Override
-	public void onEntitySwing(EntityLiving living) {
-		if (living == mc.thePlayer && mc.objectMouseOver == null) {
-			ItemStack stack = mc.thePlayer.getCurrentEquippedItem();
-			if (stack != null && stack.getItem() != null && stack.getItem() instanceof ItemWarfare) {
-				((ItemWarfare)stack.getItem()).onItemLeftClickTick(mc.thePlayer, mc.thePlayer.worldObj);
-			}
-			new PacketLeftClick().sendToServer();
-		}
-	}
-	
-	@Override
 	public void preInit() {
 		MinecraftForgeClient.preloadTexture(MinecraftWarfare.TEXTURE_FILE);
 		ClientEventHandler.init();

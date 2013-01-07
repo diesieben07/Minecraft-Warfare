@@ -18,9 +18,10 @@ public class ItemGun extends ItemWarfare {
 	}
 	
 	@Override
-	public void onItemLeftClickTick(EntityPlayer player, World world) {
-		if (!world.isRemote) {
-			EntityBullet bullet = new EntityBullet(world, player, GunType.fromItemDamage(player.getCurrentEquippedItem()));
+	public void onItemLeftClickTick(EntityPlayer player, World world, int shootCount) {
+		GunType gun = GunType.fromItemDamage(player.getCurrentEquippedItem());
+		if (gun.shouldShootAtTick(shootCount)) {
+			EntityBullet bullet = new EntityBullet(world, player, gun);
 			bullet.setPosition(player.posX, player.posY + player.getEyeHeight(), player.posZ);
 			world.spawnEntityInWorld(bullet);
 			Sound.ACR_SHOOT.playAtEntity(player);

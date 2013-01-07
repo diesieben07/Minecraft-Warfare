@@ -18,7 +18,7 @@ public class ItemWarfare extends Item {
 		initWarfareItem(this, itemName);
 	}
 	
-	public void onItemLeftClickTick(EntityPlayer player, World world) { }
+	public void onItemLeftClickTick(EntityPlayer player, World world, int leftClickCount) { }
 	
 	public static void initWarfareItem(Item item, String itemName) {
 		item.setItemName("mcwarfare." + itemName);
