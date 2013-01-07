@@ -62,6 +62,7 @@ public class MinecraftWarfare {
 		proxy.init();
 		
 		creativeTab = new WFCreativeTab();
+		creativeTab = new GunCreativeTab();
 		
 		ItemWarfare.createItems();
 		
