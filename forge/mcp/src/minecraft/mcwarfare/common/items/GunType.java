@@ -4,20 +4,24 @@ import net.minecraft.item.ItemStack;
 
 public enum GunType {
 	
-	NORMAL("normal", 0, 10, 0, 0);
+	NORMAL("normal", 0, 10, 0, 0, 0, 0);
 	
 	private final int bulletDamage;
 	private final String name;
 	private final int textureIndex;
 	private final int vrecoil;
 	private final int hrecoil;
+	private final int fmode;
+	private final int bspeed;
 	
-	private GunType(String name, int textureIndex, int bulletDamage, int vrecoil, int hrecoil) {
+	private GunType(String name, int textureIndex, int bulletDamage, int vrecoil, int hrecoil, int fmode, int bspeed) {
 		this.bulletDamage = bulletDamage;
 		this.name = name;
 		this.textureIndex = textureIndex;
 		this.vrecoil = vrecoil;
 		this.hrecoil = hrecoil;
+		this.fmode = fmode;
+		this.bspeed = bspeed;
 	}
 	
 	public static GunType byId(int id) {
@@ -50,5 +54,11 @@ public enum GunType {
 
 	public int getHrecoil() {
 		return hrecoil;
+	}
+	public int getFmode() {
+		return fmode;
+	}
+	public int getBspeed() {
+		return bspeed;
 	}
 }
