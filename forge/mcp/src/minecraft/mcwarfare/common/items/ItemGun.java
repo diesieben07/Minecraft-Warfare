@@ -2,6 +2,7 @@ package mcwarfare.common.items;
 
 import java.util.List;
 
+import mcwarfare.common.MinecraftWarfare;
 import mcwarfare.common.Sound;
 import mcwarfare.common.entities.EntityBullet;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,6 +16,7 @@ public class ItemGun extends ItemWarfare {
 
 	public ItemGun(int defaultId) {
 		super("gun", defaultId);
+	
 	}
 	
 	@Override
